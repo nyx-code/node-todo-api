@@ -4,22 +4,11 @@ var { ObjectID } = require('mongodb');
 
 var { app } = require('./../server');
 var { Todo } = require('./../model/todo');
+const {todos, populateTodos, populateUsers} = require('./seed/seed');
 
-const todos = [{
-    _id: new ObjectID(),
-    text: "First test todo"
-}, {
-    _id: new ObjectID(),
-    text: "Second test todo",
-    completed: true,
-    completedAt: 1111
-}];
 
-beforeEach((done) => {
-    Todo.remove({}).then(() => {
-        Todo.insertMany(todos);
-    }).then(() => done());
-});
+beforeEach(populateTodos);
+
 
 describe('POST /todos', () => {
     it('should create new todo with name having text', (done) => {
@@ -181,3 +170,4 @@ describe('PATCH /todos/:id', () => {
     });
 });
 
+// beforeEach(populateUsers);
