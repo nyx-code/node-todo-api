@@ -24,7 +24,7 @@ beforeEach((done) => {
 describe('POST /todos', () => {
     it('should create new todo with name having text', (done) => {
 
-        var text = "This is test todo";
+        var text = 'This is test todo';
 
         request(app)
             .post('/todos')
@@ -43,7 +43,7 @@ describe('POST /todos', () => {
                     expect(todos[0].text).toBe(text);
                     done();
                 }).catch((err) => done(err));
-            })
+            });
     });
     it('should not add invalid data in database', (done) => {
         request(app)

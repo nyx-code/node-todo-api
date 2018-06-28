@@ -1,4 +1,4 @@
-var {MONGODB_URI_LOCAL} = require('./config/config');
+var {MONGODB_URI} = require('./config/config');
 
 const _ = require('lodash');
 const express = require('express');
@@ -113,5 +113,5 @@ app.listen(port, () => {
     console.log(`Started on Port ${port}`);
 });
 
-module.exports = { app , MONGODB_URI_LOCAL};
+module.exports = { app , MONGODB_URI};
 
